@@ -16,13 +16,6 @@ import java.time.temporal.ChronoUnit;
  * @since 1.8
  */
 public final class DateTimeUtilities {
-
-    public static void main(String[] args) {
-        LocalDateTime d = LocalDateTime.now();
-        
-        getElapsedHoursAndMinutesAsString(d,d.plusMinutes(150));
-    }
-
     /**
      * Converts a LocalDate Object and returns it as a string.
      * @param date This is the date you want converted, not null
@@ -154,9 +147,9 @@ requireNonNull(firstDate,lastDate);
         return String.format("%shr(s). %smin(s)", hours,minutes);
     }
     
-    private static <T> T[] requireNonNull(T ... obj) {
-        for(T t : obj){
-            if(t == null)
+    private static Object[] requireNonNull(Object ... obj) {
+        for(Object o : obj){
+            if(o == null)
                 throw new NullPointerException("Object was null");
         }
         return obj;
