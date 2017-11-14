@@ -3,7 +3,7 @@ package com.brendanjbishop.datetime;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.sql.Date;
+import java.util.Date;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
@@ -81,7 +81,7 @@ public final class DateTimeUtilities {
      */
     public static LocalDate toLocalDate(Date date) throws NullPointerException, DateTimeException {
         requireNonNull(date);
-        return date.toLocalDate();
+        return new java.sql.Date(date.getTime()).toLocalDate();
     }
 
     /**
